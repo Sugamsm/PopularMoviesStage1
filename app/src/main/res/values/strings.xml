@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+
+    <string name="movie_name">Movie Name</string>
+    <string name="overview">Overview :</string>
+    <string name="title">Title</string>
+    <string name="retry_tv">Error Loading... Retry!</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading Movies Please Wait...</string>
+    <string name="vote_average">Vote Average :</string>
+    <string name="releaseInfo">Release Date :</string>
+    <string name="menu_error">Already Displaying Requested!</string>
+    <string name="network_error">Please Connect to a Network!</string>
+    <string name="action_settings">Settings</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="high_rated">Highest Rated</string>
+    <string name="favourites">Added to Favourites!!</string>
+</resources>
