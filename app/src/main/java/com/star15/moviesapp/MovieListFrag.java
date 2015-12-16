@@ -33,7 +33,7 @@ public class MovieListFrag extends Fragment implements RcvAdapter.ClickListener,
     private RecyclerView rcv;
     List<Data> data;
     private static String COMMON_URL = "https://api.themoviedb.org/3/discover/movie?";
-    private static String API_KEY = "a0e80b0b7435ca6c84689f8a839e263f";
+    private static String API_KEY = "";
     private static String LOAD_URL = "";
     private static String LAST_TRIED = "";
     private static String TAG_NAME = "results";

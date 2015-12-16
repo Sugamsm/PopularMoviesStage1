@@ -34,7 +34,7 @@ import java.util.List;
 public class MovieFocusFrag extends Fragment {
     private static String IMG_URL = "http://image.tmdb.org/t/p/w500";
     public static String LOAD_Vids = "http://api.themoviedb.org/3/movie/";
-    private static String API_KEY = "a0e80b0b7435ca6c84689f8a839e263f";
+    private static String API_KEY = "";
     ImageView backdrop, reviewer_logo, poster;
     ImageButton favB;
     String[] reviewer_urls, save_vids, save_revs, save_names, save_vnames, entire;
