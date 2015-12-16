@@ -2,9 +2,11 @@ package com.star15.moviesapp;
 
 import android.graphics.Bitmap;
 
-/**
- * Created by HP on 22-10-2015.
- */
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Data {
     String imgIconUrl;
     String title;
@@ -12,5 +14,8 @@ public class Data {
     String releaseDate;
     String overview;
     String original_title;
+    int movie_id;
+    int runtime;
     int vote;
+
 }

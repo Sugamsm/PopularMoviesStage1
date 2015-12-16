@@ -16,4 +16,9 @@
     <string name="most_popular">Most Popular</string>
     <string name="high_rated">Highest Rated</string>
     <string name="favourites">Added to Favourites!!</string>
+    <string name="run_time">Runtime :</string>
+    <string name="trailer">Trailers</string>
+    <string name="review">Reviews</string>
+    <string name="favs">Favourites</string>
+    <string name="fav_error">No Favourites Yet!</string>
 </resources>

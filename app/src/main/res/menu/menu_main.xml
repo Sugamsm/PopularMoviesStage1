@@ -17,4 +17,9 @@
         android:orderInCategory="300"
         android:title="@string/high_rated"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/fav_item"
+        android:orderInCategory="400"
+        android:title="@string/favs"
+        app:showAsAction="never" />
 </menu>

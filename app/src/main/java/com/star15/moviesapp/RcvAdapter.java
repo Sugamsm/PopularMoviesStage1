@@ -8,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -22,48 +24,31 @@ public class RcvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static String IMG_URL = "http://image.tmdb.org/t/p/w500";
     private ClickListener clickListener;
     List<Data> data = Collections.emptyList();
-    String ActName;
 
-    public RcvAdapter(Context context, List<Data> data, String ActName) {
+
+    public RcvAdapter(Context context, List<Data> data) {
         this.context = context;
-        inflater = LayoutInflater.from(context);
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.data = data;
-        this.ActName = ActName;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (ActName.equals("MAIN")) {
-            View view = inflater.inflate(R.layout.single_movie_item, viewGroup, false);
-            ItemHolder itemHolder = new ItemHolder(view);
-            return itemHolder;
-        } else {
-            View view = inflater.inflate(R.layout.movie_focus_items, viewGroup, false);
-            SingleMovie singleMovie = new SingleMovie(view);
-            return singleMovie;
-        }
+        View view = inflater.inflate(R.layout.single_movie_item, viewGroup, false);
+        ItemHolder itemHolder = new ItemHolder(view);
+        return itemHolder;
+
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        if (viewHolder instanceof SingleMovie) {
-            SingleMovie singleMovie = (SingleMovie) viewHolder;
-            Data current = data.get(i);
-            Context context = singleMovie.poster.getContext();
-            Picasso.with(context).load(IMG_URL + current.imgIconUrl).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(singleMovie.poster);
-            singleMovie.releaseDate.setText("Release Date : " + current.releaseDate);
-            singleMovie.overView.setText(current.overview);
-            singleMovie.OriginalTitle.setText(current.original_title);
-            singleMovie.Vote.setText("Votes : " + current.vote);
 
-        } else {
+        ItemHolder itemHolder = (ItemHolder) viewHolder;
 
-            ItemHolder itemHolder = (ItemHolder) viewHolder;
+        Data current = data.get(i);
+        Context cont = itemHolder.imgLogo.getContext();
+        Picasso.with(cont).load(IMG_URL + current.imgIconUrl).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(itemHolder.imgLogo);
 
-            Data current = data.get(i);
-            Context context = itemHolder.imgLogo.getContext();
-            Picasso.with(context).load(IMG_URL + current.imgIconUrl).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(itemHolder.imgLogo);
-        }
 
     }
 
@@ -76,22 +61,6 @@ public class RcvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
-    }
-
-    class SingleMovie extends RecyclerView.ViewHolder {
-        TextView releaseDate, Vote, overView, OriginalTitle;
-        ImageView poster;
-
-        public SingleMovie(View itemView) {
-            super(itemView);
-            poster = (ImageView) itemView.findViewById(R.id.focusPoster);
-            Vote = (TextView) itemView.findViewById(R.id.voteAverage);
-            overView = (TextView) itemView.findViewById(R.id.overviewInfo);
-            releaseDate = (TextView) itemView.findViewById(R.id.releaseDate);
-            OriginalTitle = (TextView) itemView.findViewById(R.id.original_title);
-
-
-        }
     }
 
     class ItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
