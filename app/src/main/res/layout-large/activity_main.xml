@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_cont_large"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <LinearLayout
+        android:id="@+id/frags_cont"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar"
+        android:orientation="horizontal">
+
+
+        <fragment
+            android:id="@+id/movie_list_frag"
+            android:name="com.star15.moviesapp.MovieListFrag"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            tools:layout="@layout/movies_list_layout" />
+
+        <fragment
+            android:id="@+id/movie_focus_frag"
+            android:name="com.star15.moviesapp.MovieFocusFrag"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            tools:layout="@layout/movie_focus_frag" />
+
+    </LinearLayout>
+</RelativeLayout>
